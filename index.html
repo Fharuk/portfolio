@@ -177,15 +177,21 @@
                     <a href="#projects" class="px-8 py-4 bg-neon text-black font-bold font-mono rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,148,0.3)]">
                         VIEW_PROJECTS
                     </a>
-                    <button class="px-8 py-4 border border-white/20 text-white font-mono rounded hover:border-white transition-all flex items-center gap-2">
+                    <a href="https://drive.google.com/drive/folders/1U38l3SF7x_2qu7WZ6dAZ-WwM3nY8PawI?usp=sharing" target="_blank" class="px-8 py-4 border border-white/20 text-white font-mono rounded hover:border-white transition-all flex items-center gap-2">
                         <i data-lucide="download" size="16"></i> DOWNLOAD CV
-                    </button>
+                    </a>
                 </div>
 
-                <div class="flex gap-4 pt-8 text-gray-500">
-                    <a href="https://github.com/Fharuk" target="_blank" class="hover:text-white transition-colors"><i data-lucide="github"></i></a>
-                    <a href="https://www.linkedin.com/in/faruqakinmade" target="_blank" class="hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
-                    <a href="mailto:Fharuk147@gmail.com" class="hover:text-white transition-colors"><i data-lucide="mail"></i></a>
+                <div class="flex flex-wrap gap-4 pt-4 text-sm font-mono text-gray-400 items-center">
+                    <a href="https://www.linkedin.com/in/faruqakinmade" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-[#0077b5]/10 border border-[#0077b5]/30 text-[#0077b5] rounded hover:bg-[#0077b5]/20 transition-all">
+                        <i data-lucide="linkedin" size="16"></i> CONNECT
+                    </a>
+                    <a href="https://share.streamlit.io/user/fharuk" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 text-red-400 rounded hover:bg-red-500/20 transition-all">
+                        <i data-lucide="app-window" size="16"></i> STREAMLIT
+                    </a>
+                    <a href="https://github.com/Fharuk" target="_blank" class="flex items-center gap-2 px-4 py-2 hover:text-white transition-colors">
+                        <i data-lucide="github" size="16"></i> GITHUB
+                    </a>
                 </div>
             </div>
 
@@ -216,12 +222,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-neon mb-4 font-mono">LANGUAGES & ML</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Python</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Python (Expert)</span>
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">TensorFlow</span>
                         <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Scikit-Learn</span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">MATLAB</span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Pandas</span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">SQL</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">C++</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">TinyML</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Reinforcement Learning</span>
                     </div>
                 </div>
 
@@ -262,80 +268,123 @@
                 <p class="text-gray-400">Full-Stack Development, AI Agents, and SaaS Prototypes.</p>
             </div>
 
-            <div class="space-y-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
-                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
-                    <div class="glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
-                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700"></div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="px-2 py-1 bg-neon/20 text-neon text-xs font-bold rounded mb-2 inline-block">MULTI-AGENT AI</span>
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal">
+                    <div>
+                        <div class="h-48 mb-6 rounded-lg bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-60 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-all"></div>
+                            <span class="absolute top-2 right-2 bg-neon/20 text-neon px-2 py-1 text-xs font-mono rounded">MULTI-AGENT AI</span>
                         </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold text-white">Municipal Infrastructure Sentinel</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            A city-scale maintenance triage system using Multi-Agent AI to validate and prioritize infrastructure reports. Uses <strong>Gemini 2.5 Flash</strong> for visual verification and geospatial logic for prioritization.
+                        <h3 class="text-2xl font-bold text-white mb-3">Municipal Infrastructure Sentinel</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            City-scale triage using Multi-Agent AI to validate infrastructure reports. Features <strong>Gemini 2.5 Flash</strong> vision verification and geospatial prioritization logic.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-neon">
-                            <span>PYTHON</span> <span>GEMINI-FLASH</span> <span>FOLIUM</span> <span>STREAMLIT</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-neon mb-4">
+                            <span>PYTHON</span> <span>GEMINI</span> <span>FOLIUM</span>
                         </div>
-                        <div class="flex gap-4 pt-2">
-                            <a href="https://the-municipal-infrastructure-sentinel-askk6sxrharks3db8woukr.streamlit.app/" target="_blank" class="px-6 py-3 bg-neon text-black font-bold font-mono text-sm rounded hover:bg-white transition-all">LIVE DEMO</a>
-                            <a href="https://github.com/Fharuk/The-Municipal-Infrastructure-Sentinel" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
+                        <div class="flex gap-4">
+                            <a href="https://the-municipal-infrastructure-sentinel-askk6sxrharks3db8woukr.streamlit.app/" target="_blank" class="text-sm font-bold text-white hover:text-neon transition-colors">LIVE DEMO -></a>
+                            <a href="https://github.com/Fharuk/The-Municipal-Infrastructure-Sentinel" target="_blank" class="text-sm font-bold text-gray-500 hover:text-white transition-colors">CODE</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
-                    <div class="order-2 lg:order-1 space-y-6">
-                        <h3 class="text-3xl font-bold text-white">Naija Legal Aid</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            Voice-First AI Assistant bridging the gap between complex law and citizens. Speaks Pidgin English, generates formal <code>.docx</code> demands, and includes strict jurisdiction guardrails.
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal delay-75">
+                    <div>
+                        <div class="h-48 mb-6 rounded-lg bg-gradient-to-br from-gray-900 to-black relative overflow-hidden group border border-white/5 flex items-center justify-center">
+                            <i data-lucide="mic" class="text-cyan opacity-50 group-hover:opacity-100 transition-opacity" size="48"></i>
+                            <span class="absolute top-2 right-2 bg-cyan/20 text-cyan px-2 py-1 text-xs font-mono rounded">VOICE AI</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Naija Legal Aid</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Voice-First AI bridging the gap to complex law. Speaks Pidgin English, generates formal <code>.docx</code> demands instantly without cloud storage.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan">
-                            <span>VOICE-AI</span> <span>gTTS</span> <span>PYTHON-DOCX</span> <span>GEMINI</span>
-                        </div>
-                        <div class="flex gap-4 pt-2">
-                            <a href="https://naija-legal-aid-bnwwrslbvyi8rmtpnsqhye.streamlit.app/" target="_blank" class="px-6 py-3 bg-cyan text-black font-bold font-mono text-sm rounded hover:bg-white transition-all">LIVE DEMO</a>
-                            <a href="https://github.com/Fharuk/Naija-Legal-Aid" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
-                        </div>
                     </div>
-                    <div class="order-1 lg:order-2 glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity">
-                            <div class="flex gap-1 items-center">
-                                <div class="w-2 h-10 bg-cyan animate-pulse"></div>
-                                <div class="w-2 h-16 bg-cyan animate-pulse delay-75"></div>
-                                <div class="w-2 h-8 bg-cyan animate-pulse delay-150"></div>
-                                <div class="w-2 h-12 bg-cyan animate-pulse delay-100"></div>
-                                <div class="w-2 h-6 bg-cyan animate-pulse"></div>
-                            </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan mb-4">
+                            <span>GTTS</span> <span>VOICE-ENGINE</span> <span>DOCX</span>
                         </div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="px-2 py-1 bg-cyan/20 text-cyan text-xs font-bold rounded mb-2 inline-block">AUDIO ENGINEERING</span>
+                        <div class="flex gap-4">
+                            <a href="https://naija-legal-aid-bnwwrslbvyi8rmtpnsqhye.streamlit.app/" target="_blank" class="text-sm font-bold text-white hover:text-cyan transition-colors">LIVE DEMO -></a>
+                            <a href="https://github.com/Fharuk/Naija-Legal-Aid" target="_blank" class="text-sm font-bold text-gray-500 hover:text-white transition-colors">CODE</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
-                    <div class="glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-purple-900 to-orange-600 opacity-20 group-hover:opacity-40 transition-all"></div>
-                        <div class="absolute bottom-6 left-6">
-                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded mb-2 inline-block">ARBITRAGE ENGINE</span>
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal">
+                    <div>
+                        <div class="h-48 mb-6 rounded-lg bg-gradient-to-br from-purple-900/20 to-black relative overflow-hidden group border border-white/5 flex items-center justify-center">
+                            <i data-lucide="bar-chart-2" class="text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity" size="48"></i>
+                            <span class="absolute top-2 right-2 bg-purple-500/20 text-purple-400 px-2 py-1 text-xs font-mono rounded">FINTECH</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Naija MarketSense</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Multimodal AI agent for SMEs visualizing price spreads (arbitrage) on heatmaps. Interprets heavy Pidgin accents via "Wise Trader" persona.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-purple-400 mb-4">
+                            <span>PLOTLY</span> <span>MULTIMODAL</span> <span>GEMINI</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://naija-marketsense-sznpezycdvs2oxsv2nnnjd.streamlit.app/" target="_blank" class="text-sm font-bold text-white hover:text-purple-400 transition-colors">LIVE DEMO -></a>
+                            <a href="https://github.com/Fharuk/Naija-MarketSense" target="_blank" class="text-sm font-bold text-gray-500 hover:text-white transition-colors">CODE</a>
                         </div>
                     </div>
-                    <div class="space-y-6">
-                        <h3 class="text-3xl font-bold text-white">Naija MarketSense</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            A multimodal AI agent for SMEs. Visualizes price spreads on a heatmap to spot "Buy Low, Sell High" opportunities. Accepts heavy Pidgin accents via the "Wise Trader" persona.
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal delay-75">
+                    <div>
+                        <div class="h-48 mb-6 rounded-lg bg-gradient-to-br from-yellow-900/20 to-black relative overflow-hidden group border border-white/5 flex items-center justify-center">
+                            <i data-lucide="zap" class="text-yellow-400 opacity-50 group-hover:opacity-100 transition-opacity" size="48"></i>
+                            <span class="absolute top-2 right-2 bg-yellow-500/20 text-yellow-400 px-2 py-1 text-xs font-mono rounded">RL AGENT</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Autonomous Energy Grid</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Deep Reinforcement Learning (PPO) agent stabilizing renewable microgrids. Achieved <strong>5.5% cost savings</strong> vs standard controllers via optimal battery discharge strategies.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-purple-400">
-                            <span>PLOTLY</span> <span>MULTIMODAL-AI</span> <span>FINTECH</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-yellow-400 mb-4">
+                            <span>PYTORCH</span> <span>GYMNASIUM</span> <span>STABLE-BASELINES3</span>
                         </div>
-                        <div class="flex gap-4 pt-2">
-                            <a href="https://naija-marketsense-sznpezycdvs2oxsv2nnnjd.streamlit.app/" target="_blank" class="px-6 py-3 bg-white text-black font-bold font-mono text-sm rounded hover:bg-gray-200 transition-all">LIVE DEMO</a>
-                            <a href="https://github.com/Fharuk/Naija-MarketSense" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
+                        <div class="flex gap-4">
+                            <a href="https://autonomous-energy-grid-xh2lvsj9lnitmvmqvruq94.streamlit.app/" target="_blank" class="text-sm font-bold text-white hover:text-yellow-400 transition-colors">LIVE DEMO -></a>
+                            <a href="https://github.com/Fharuk/autonomous-energy-grid" target="_blank" class="text-sm font-bold text-gray-500 hover:text-white transition-colors">CODE</a>
                         </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                            <i data-lucide="wifi" size="20" class="text-blue-400"></i> WiFi Performance Auditor
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Full-stack bandwidth monitor using event-driven architecture to visualize latency trends and SLA violations in real-time.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mt-4 border-t border-white/10 pt-4">
+                        <a href="https://wifi-dashboard-fgavfog3iwlm3s25iwnpjd.streamlit.app" target="_blank" class="text-xs font-bold text-blue-400 hover:text-white transition-colors">LAUNCH APP</a>
+                        <a href="https://github.com/Fharuk/WiFi-Dashboard" target="_blank" class="text-xs font-bold text-gray-500 hover:text-white transition-colors">GITHUB</a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl flex flex-col justify-between scroll-reveal delay-75">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                            <i data-lucide="lock" size="20" class="text-alert"></i> Credential Leak Auditor
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Security tool auditing employee emails against breach databases. Features a mock API layer to simulate "Have I Been Pwned" responses.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mt-4 border-t border-white/10 pt-4">
+                        <a href="https://credential-auditor-ft52xzyldqlth7x2wx9drc.streamlit.app" target="_blank" class="text-xs font-bold text-alert hover:text-white transition-colors">LAUNCH APP</a>
+                        <a href="https://github.com/Fharuk/credential-auditor" target="_blank" class="text-xs font-bold text-gray-500 hover:text-white transition-colors">GITHUB</a>
                     </div>
                 </div>
 
@@ -350,7 +399,7 @@
                 <p class="text-gray-400">Medical Diagnosis, Interpretability (XAI), and Predictive Analytics.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <div class="glass-card p-6 rounded border-t-2 border-t-alert/50 hover:border-t-alert transition-all scroll-reveal">
                     <div class="flex justify-between items-start mb-4">
@@ -382,7 +431,7 @@
                     <a href="https://heart-disease-predictor-atx8csvrdglknzmp28hfay.streamlit.app" target="_blank" class="text-xs text-neon hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
                 </div>
 
-                <div class="glass-card p-6 rounded border-t-2 border-t-yellow-400/50 hover:border-t-yellow-400 transition-all scroll-reveal delay-200">
+                <div class="glass-card p-6 rounded border-t-2 border-t-yellow-400/50 hover:border-t-yellow-400 transition-all scroll-reveal">
                     <div class="flex justify-between items-start mb-4">
                         <i data-lucide="leaf" class="text-yellow-400"></i>
                         <span class="text-xs font-mono text-gray-500">AGRITECH</span>
@@ -390,6 +439,16 @@
                     <h4 class="font-bold text-white mb-2">Crop Recommendation</h4>
                     <p class="text-xs text-gray-400 mb-4">Optimizing yield by analyzing soil N-P-K values for Nigerian farmers.</p>
                     <a href="https://intelligent-crop-recommendation-system.streamlit.app" target="_blank" class="text-xs text-yellow-400 hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
+                </div>
+
+                <div class="glass-card p-6 rounded border-t-2 border-t-purple-400/50 hover:border-t-purple-400 transition-all scroll-reveal delay-75">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="message-circle" class="text-purple-400"></i>
+                        <span class="text-xs font-mono text-gray-500">F1: 0.99</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-2">NLP Spam Engine</h4>
+                    <p class="text-xs text-gray-400 mb-4">Real-time SMS classification using Random Forest, TF-IDF, and SMOTE.</p>
+                    <a href="https://spam-sms-detector-anqt8p2whl9vzfccsa7xrp.streamlit.app" target="_blank" class="text-xs text-purple-400 hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
                 </div>
 
             </div>
@@ -402,7 +461,7 @@
             <div class="scroll-reveal">
                 <h2 class="text-2xl font-mono font-bold text-white mb-6"> > WHOAMI</h2>
                 <p class="text-gray-400 mb-6 leading-relaxed">
-                    I am an engineer with a passion for solving African-context problems using global technology. Whether it's optimizing Models and Systems one step at a time, I build systems that work in the real world.
+                    I am an engineering graduate from FUNAAB with a passion for solving African-context problems using global technology. Whether it's optimizing energy grids with Reinforcement Learning or helping a market trader find the best price, I build systems that work in the real world.
                 </p>
                 <div class="space-y-4">
                      <div class="p-4 border border-glassBorder bg-void rounded font-mono text-sm text-green-400">
@@ -457,6 +516,4 @@
         });
     </script>
 </body>
-
 </html>
-
