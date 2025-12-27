@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fharuk | Architecting Intelligence</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050505',
+                        void: '#0a0a0a',
+                        neon: '#00FF94',
+                        cyan: '#00D8FF',
+                        alert: '#FF0055',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                        glassBorder: 'rgba(255, 255, 255, 0.08)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)",
+                        'radial-glow': "radial-gradient(circle at center, rgba(0, 255, 148, 0.15) 0%, transparent 70%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        body {
+            background-color: #050505;
+            color: #EDEDED;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 255, 148, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 148, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .neon-text-shadow {
+            text-shadow: 0 0 10px rgba(0, 255, 148, 0.5);
+        }
+
+        /* The Reactor Animation */
+        .reactor-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reactor-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 255, 148, 0.3);
+            animation: spin 10s linear infinite;
+        }
+
+        .reactor-core {
+            width: 50px;
+            height: 50px;
+            background: #00FF94;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #00FF94;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.85); opacity: 0.8; }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter effect for System Status */
+        .blink-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="antialiased selection:bg-neon selection:text-black">
+
+    <div class="fixed inset-0 z-0 pointer-events-none bg-grid bg-grid-pattern opacity-20"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none bg-radial-glow opacity-30"></div>
+
+    <nav class="fixed top-0 w-full z-50 border-b border-glassBorder bg-obsidian/80 backdrop-blur-md">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-mono text-neon font-bold text-xl tracking-tighter">FHARUK_DEV</a>
+            
+            <div class="hidden md:flex space-x-8 font-mono text-sm text-gray-400">
+                <a href="#skills" class="hover:text-neon transition-colors">SKILLS</a>
+                <a href="#projects" class="hover:text-neon transition-colors">PROJECTS</a>
+                <a href="#research" class="hover:text-neon transition-colors">LAB</a>
+                <a href="#about" class="hover:text-neon transition-colors">LOGS</a>
+            </div>
+
+            <a href="#contact" class="hidden md:flex items-center gap-2 px-4 py-2 border border-neon/30 rounded text-neon hover:bg-neon/10 transition-all font-mono text-xs">
+                INITIALIZE CONTACT
+            </a>
+
+            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-void border-b border-glassBorder p-4 space-y-4 font-mono">
+            <a href="#skills" class="block text-gray-400 hover:text-neon">SKILLS</a>
+            <a href="#projects" class="block text-gray-400 hover:text-neon">PROJECTS</a>
+            <a href="#research" class="block text-gray-400 hover:text-neon">LAB</a>
+            <a href="#about" class="block text-gray-400 hover:text-neon">LOGS</a>
+        </div>
+    </nav>
+
+    <section class="relative z-10 min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6 scroll-reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon/20 bg-neon/5">
+                    <span class="w-2 h-2 rounded-full bg-neon animate-pulse"></span>
+                    <span class="text-xs font-mono text-neon tracking-wide">SYSTEM ONLINE</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                    ARCHITECTING <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-cyan neon-text-shadow">INTELLIGENCE</span>
+                </h1>
+                
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    Building intelligent systems, edge devices, and data-driven solutions for the real world.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="px-8 py-4 bg-neon text-black font-bold font-mono rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,148,0.3)]">
+                        VIEW_PROJECTS
+                    </a>
+                    <button class="px-8 py-4 border border-white/20 text-white font-mono rounded hover:border-white transition-all flex items-center gap-2">
+                        <i data-lucide="download" size="16"></i> DOWNLOAD CV
+                    </button>
+                </div>
+
+                <div class="flex gap-4 pt-8 text-gray-500">
+                    <a href="https://github.com/Fharuk" target="_blank" class="hover:text-white transition-colors"><i data-lucide="github"></i></a>
+                    <a href="https://www.linkedin.com/in/faruqakinmade" target="_blank" class="hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
+                    <a href="mailto:Fharuk147@gmail.com" class="hover:text-white transition-colors"><i data-lucide="mail"></i></a>
+                </div>
+            </div>
+
+            <div class="flex justify-center md:justify-end scroll-reveal delay-200">
+                <div class="reactor-container">
+                    <div class="reactor-core"></div>
+                    <div class="reactor-ring" style="width: 100%; height: 100%;"></div>
+                    <div class="reactor-ring" style="width: 80%; height: 80%; animation-direction: reverse; animation-duration: 7s;"></div>
+                    <div class="reactor-ring" style="width: 120%; height: 120%; border-style: dashed; opacity: 0.3; animation-duration: 15s;"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills" class="relative z-10 py-24 border-t border-glassBorder/30">
+        <div class="container mx-auto px-6">
+            <div class="mb-12 scroll-reveal">
+                <h2 class="text-3xl font-mono font-bold text-white mb-2">// TOOLKIT_MATRIX</h2>
+                <div class="w-20 h-1 bg-neon"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-6 rounded-xl col-span-1 lg:col-span-2 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="code-2" size="100"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-neon mb-4 font-mono">LANGUAGES & ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Python (Expert)</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">TensorFlow</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Scikit-Learn</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">C++</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">TinyML</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-white">Reinforcement Learning</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl scroll-reveal">
+                    <h3 class="text-xl font-bold text-cyan mb-4 font-mono">WEB ENGINEERING</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="layout" size="14" class="text-cyan"></i> Streamlit</li>
+                        <li class="flex items-center gap-2"><i data-lucide="server" size="14" class="text-cyan"></i> Flask / REST APIs</li>
+                        <li class="flex items-center gap-2"><i data-lucide="globe" size="14" class="text-cyan"></i> HTML / CSS</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl scroll-reveal">
+                    <h3 class="text-xl font-bold text-white mb-4 font-mono">CLOUD & DEVOPS</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-gray-400 border border-gray-700 px-2 py-1 rounded text-xs">Google Cloud Run</span>
+                        <span class="text-gray-400 border border-gray-700 px-2 py-1 rounded text-xs">Docker</span>
+                        <span class="text-gray-400 border border-gray-700 px-2 py-1 rounded text-xs">Git/GitHub</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl scroll-reveal col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-alert mb-4 font-mono">HARDWARE / IOT</h3>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="cpu" class="text-gray-600"></i>
+                        <p class="text-gray-400 text-sm">Arduino, ESP32, Edge Computing & Sensor Integration</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="relative z-10 py-24 bg-void/50">
+        <div class="container mx-auto px-6">
+            <div class="mb-16 scroll-reveal">
+                <h2 class="text-3xl font-mono font-bold text-white mb-2">// DEPLOYED_SYSTEMS</h2>
+                <p class="text-gray-400">Full-Stack Development, AI Agents, and SaaS Prototypes.</p>
+            </div>
+
+            <div class="space-y-24">
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
+                    <div class="glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="px-2 py-1 bg-neon/20 text-neon text-xs font-bold rounded mb-2 inline-block">MULTI-AGENT AI</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-white">Municipal Infrastructure Sentinel</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            A city-scale maintenance triage system using Multi-Agent AI to validate and prioritize infrastructure reports. Uses <strong>Gemini 2.5 Flash</strong> for visual verification and geospatial logic for prioritization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-neon">
+                            <span>PYTHON</span> <span>GEMINI-FLASH</span> <span>FOLIUM</span> <span>STREAMLIT</span>
+                        </div>
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://the-municipal-infrastructure-sentinel-askk6sxrharks3db8woukr.streamlit.app/" target="_blank" class="px-6 py-3 bg-neon text-black font-bold font-mono text-sm rounded hover:bg-white transition-all">LIVE DEMO</a>
+                            <a href="https://github.com/Fharuk/The-Municipal-Infrastructure-Sentinel" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
+                    <div class="order-2 lg:order-1 space-y-6">
+                        <h3 class="text-3xl font-bold text-white">Naija Legal Aid</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Voice-First AI Assistant bridging the gap between complex law and citizens. Speaks Pidgin English, generates formal <code>.docx</code> demands, and includes strict jurisdiction guardrails.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-cyan">
+                            <span>VOICE-AI</span> <span>gTTS</span> <span>PYTHON-DOCX</span> <span>GEMINI</span>
+                        </div>
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://naija-legal-aid-bnwwrslbvyi8rmtpnsqhye.streamlit.app/" target="_blank" class="px-6 py-3 bg-cyan text-black font-bold font-mono text-sm rounded hover:bg-white transition-all">LIVE DEMO</a>
+                            <a href="https://github.com/Fharuk/Naija-Legal-Aid" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity">
+                            <div class="flex gap-1 items-center">
+                                <div class="w-2 h-10 bg-cyan animate-pulse"></div>
+                                <div class="w-2 h-16 bg-cyan animate-pulse delay-75"></div>
+                                <div class="w-2 h-8 bg-cyan animate-pulse delay-150"></div>
+                                <div class="w-2 h-12 bg-cyan animate-pulse delay-100"></div>
+                                <div class="w-2 h-6 bg-cyan animate-pulse"></div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="px-2 py-1 bg-cyan/20 text-cyan text-xs font-bold rounded mb-2 inline-block">AUDIO ENGINEERING</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center scroll-reveal">
+                    <div class="glass-card p-2 rounded-xl bg-gradient-to-br from-gray-900 to-black border-none relative group h-64 lg:h-80 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-purple-900 to-orange-600 opacity-20 group-hover:opacity-40 transition-all"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded mb-2 inline-block">ARBITRAGE ENGINE</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-white">Naija MarketSense</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            A multimodal AI agent for SMEs. Visualizes price spreads on a heatmap to spot "Buy Low, Sell High" opportunities. Accepts heavy Pidgin accents via the "Wise Trader" persona.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-mono text-purple-400">
+                            <span>PLOTLY</span> <span>MULTIMODAL-AI</span> <span>FINTECH</span>
+                        </div>
+                        <div class="flex gap-4 pt-2">
+                            <a href="https://naija-marketsense-sznpezycdvs2oxsv2nnnjd.streamlit.app/" target="_blank" class="px-6 py-3 bg-white text-black font-bold font-mono text-sm rounded hover:bg-gray-200 transition-all">LIVE DEMO</a>
+                            <a href="https://github.com/Fharuk/Naija-MarketSense" target="_blank" class="px-6 py-3 border border-gray-600 text-white font-mono text-sm rounded hover:border-white transition-all">SOURCE CODE</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="relative z-10 py-24 border-t border-glassBorder/30">
+        <div class="container mx-auto px-6">
+            <div class="mb-12 scroll-reveal">
+                <h2 class="text-3xl font-mono font-bold text-white mb-2">// DATA_LAB</h2>
+                <p class="text-gray-400">Medical Diagnosis, Interpretability (XAI), and Predictive Analytics.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card p-6 rounded border-t-2 border-t-alert/50 hover:border-t-alert transition-all scroll-reveal">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="activity" class="text-alert"></i>
+                        <span class="text-xs font-mono text-gray-500">ACC: 98.2%</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-2">Breast Cancer Diagnosis</h4>
+                    <p class="text-xs text-gray-400 mb-4">Explainable AI (SHAP) to visualize why the model made a diagnosis.</p>
+                    <a href="https://breast-cancer-app-5zisoqlcrmb62xfx2vw7jh.streamlit.app" target="_blank" class="text-xs text-alert hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
+                </div>
+
+                <div class="glass-card p-6 rounded border-t-2 border-t-cyan/50 hover:border-t-cyan transition-all scroll-reveal delay-75">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="stethoscope" class="text-cyan"></i>
+                        <span class="text-xs font-mono text-gray-500">41 CLASSES</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-2">Disease Prediction</h4>
+                    <p class="text-xs text-gray-400 mb-4">Multi-class prediction system supporting bulk CSV uploads for clinics.</p>
+                    <a href="https://disease-prediction-app-zn8mic7nrxuerpwxvuzglh.streamlit.app" target="_blank" class="text-xs text-cyan hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
+                </div>
+
+                <div class="glass-card p-6 rounded border-t-2 border-t-neon/50 hover:border-t-neon transition-all scroll-reveal delay-150">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="heart" class="text-neon"></i>
+                        <span class="text-xs font-mono text-gray-500">STACKING</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-2">Heart Disease Risk</h4>
+                    <p class="text-xs text-gray-400 mb-4">Combining Logistic Regression and XGBoost for robust clinical models.</p>
+                    <a href="https://heart-disease-predictor-atx8csvrdglknzmp28hfay.streamlit.app" target="_blank" class="text-xs text-neon hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
+                </div>
+
+                <div class="glass-card p-6 rounded border-t-2 border-t-yellow-400/50 hover:border-t-yellow-400 transition-all scroll-reveal delay-200">
+                    <div class="flex justify-between items-start mb-4">
+                        <i data-lucide="leaf" class="text-yellow-400"></i>
+                        <span class="text-xs font-mono text-gray-500">AGRITECH</span>
+                    </div>
+                    <h4 class="font-bold text-white mb-2">Crop Recommendation</h4>
+                    <p class="text-xs text-gray-400 mb-4">Optimizing yield by analyzing soil N-P-K values for Nigerian farmers.</p>
+                    <a href="https://intelligent-crop-recommendation-system.streamlit.app" target="_blank" class="text-xs text-yellow-400 hover:underline flex items-center gap-1">LAUNCH APP <i data-lucide="arrow-up-right" size="10"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="relative z-10 py-24 bg-black">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+            
+            <div class="scroll-reveal">
+                <h2 class="text-2xl font-mono font-bold text-white mb-6"> > WHOAMI</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    I am an engineer with a passion for solving African-context problems using global technology. Whether it's optimizing Models and Systems one step at a time, I build systems that work in the real world.
+                </p>
+                <div class="space-y-4">
+                     <div class="p-4 border border-glassBorder bg-void rounded font-mono text-sm text-green-400">
+                        <p class="blink-cursor">$ STATUS: Researching Agentic AI Workflows</p>
+                    </div>
+                     <div class="p-4 border border-glassBorder bg-void rounded font-mono text-sm text-yellow-400">
+                        <p>$ CURRENT_TASK: ESP32 TinyML Optimization</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="flex flex-col justify-center space-y-8 scroll-reveal delay-100">
+                <h3 class="text-sm font-mono text-gray-500 tracking-widest">INITIATE COMMUNICATION</h3>
+                <a href="mailto:Fharuk147@gmail.com" class="text-3xl md:text-5xl font-bold text-white hover:text-neon transition-colors break-words">
+                    Fharuk147@gmail.com
+                </a>
+                
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/in/faruqakinmade" target="_blank" class="text-gray-400 hover:text-white transition-colors">LINKEDIN</a>
+                    <a href="https://github.com/Fharuk" target="_blank" class="text-gray-400 hover:text-white transition-colors">GITHUB</a>
+                    <span class="text-gray-600">|</span>
+                    <span class="text-gray-400">+234 903 043 8653</span>
+                </div>
+
+                <p class="text-xs text-gray-700 mt-12">
+                    &copy; 2025 Fharuk. System Status: Normal.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Icons
+        lucide.createIcons();
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
